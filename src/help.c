@@ -15,13 +15,13 @@ static void help(void)
 
 int arg_check(int ac, char **av)
 {
-    if (ac != 3){
+    if (my_strcmp(av[1], "-h") == 0 && ac == 2){
+        help();
+        return 0;
+    }if (ac != 3){
         my_putstr("Error: bad argument.\n");
         my_putstr("Type ./matchstick -h for informations\n");
         return 84;
-    }if (my_strcmp(av[1], "-h") == 0 && ac == 2){
-        help();
-        return 0;
     }if (my_getnbr(av[1]) <= 0 || my_getnbr(av[2]) <= 0){
         my_putstr("Precise valid numbers (> 0)\n");
         return 84;
